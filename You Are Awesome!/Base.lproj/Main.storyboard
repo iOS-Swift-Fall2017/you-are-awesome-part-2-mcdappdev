@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,16 +23,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8M-Dr-QPG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8M-Dr-QPG">
                                 <rect key="frame" x="16" y="20" width="343" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="98" id="9nT-qh-SBp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.18730272593362884" blue="0.14024726705678836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzU-py-9xT">
-                                <rect key="frame" x="135" y="126" width="104" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="TN7-fe-tGF">
+                                <rect key="frame" x="16" y="164" width="343" height="483"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play Sounds:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dV-8C-gDZ">
+                                <rect key="frame" x="16" y="131" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g8I-d6-cz6">
+                                <rect key="frame" x="123" y="126" width="51" height="31"/>
+                                <connections>
+                                    <action selector="soundSwitchPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="378-dx-hOe"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzU-py-9xT">
+                                <rect key="frame" x="255" y="126" width="104" height="30"/>
                                 <state key="normal" title="Show Message"/>
                                 <connections>
                                     <action selector="messageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4H8-6d-tbr"/>
@@ -39,10 +56,27 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WzU-py-9xT" firstAttribute="trailing" secondItem="TN7-fe-tGF" secondAttribute="trailing" id="Gkd-8h-OhN"/>
+                            <constraint firstItem="V8M-Dr-QPG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Hey-2I-NR9"/>
+                            <constraint firstAttribute="bottom" secondItem="TN7-fe-tGF" secondAttribute="bottom" constant="20" symbolic="YES" id="Iqn-ve-cnr"/>
+                            <constraint firstItem="V8M-Dr-QPG" firstAttribute="trailing" secondItem="WzU-py-9xT" secondAttribute="trailing" id="KJt-pM-M0r"/>
+                            <constraint firstItem="g8I-d6-cz6" firstAttribute="top" secondItem="WzU-py-9xT" secondAttribute="top" id="PFW-4j-5gr"/>
+                            <constraint firstItem="g8I-d6-cz6" firstAttribute="top" secondItem="V8M-Dr-QPG" secondAttribute="bottom" constant="8" symbolic="YES" id="dNR-xx-SiM"/>
+                            <constraint firstItem="g8I-d6-cz6" firstAttribute="leading" secondItem="0dV-8C-gDZ" secondAttribute="trailing" constant="8" symbolic="YES" id="m1V-ff-BeK"/>
+                            <constraint firstItem="0dV-8C-gDZ" firstAttribute="leading" secondItem="TN7-fe-tGF" secondAttribute="leading" id="nGU-4J-Ac7"/>
+                            <constraint firstItem="TN7-fe-tGF" firstAttribute="top" secondItem="WzU-py-9xT" secondAttribute="bottom" constant="8" symbolic="YES" id="oDE-SW-dER"/>
+                            <constraint firstItem="V8M-Dr-QPG" firstAttribute="leading" secondItem="0dV-8C-gDZ" secondAttribute="leading" id="taF-G8-PKg"/>
+                            <constraint firstItem="V8M-Dr-QPG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uVd-7H-MNk"/>
+                            <constraint firstItem="V8M-Dr-QPG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="vFf-bX-4Tu"/>
+                            <constraint firstItem="0dV-8C-gDZ" firstAttribute="centerY" secondItem="g8I-d6-cz6" secondAttribute="centerY" id="vpb-8m-UAr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="awesomeImage" destination="TN7-fe-tGF" id="ig9-Iq-o7k"/>
                         <outlet property="messageLabel" destination="V8M-Dr-QPG" id="Dhs-yV-2nR"/>
+                        <outlet property="soundSwitch" destination="g8I-d6-cz6" id="aPa-lq-7OU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
